@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Digital Minimalista</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .clock {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .date {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock"></div>
+    <div class="date" id="date"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').innerText = hours + ':' + minutes + ':' + seconds;
+
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            document.getElementById('date').innerText = day + '/' + month + '/' + year;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // inicializa el reloj y la fecha inmediatamente
+    </script>
+</body>
+</html>
