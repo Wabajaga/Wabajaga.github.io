@@ -5,29 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reloj Digital Minimalista</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
         body {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #000;
+            background-color: #373737; /* Color de fondo similar al modo oscuro de Notion */
             margin: 0;
-            font-family: Arial, sans-serif;
-            color: #fff;
+            font-family: 'Roboto', sans-serif; /* Fuente similar a Dubai */
+            color: #fff; /* Color de las cifras y texto en blanco */
+        }
+        .clock-container {
+            background-color: #404040; /* Gris ligeramente más claro para el área sombreada */
+            padding: 15px 25px; /* Padding ajustado */
+            border-radius: 15px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .clock {
-            font-size: 48px;
+            font-size: 36px; /* Tamaño reducido para ocupar menos espacio */
             margin-bottom: 10px;
         }
         .date {
-            font-size: 20px;
+            font-size: 16px; /* Tamaño de la fuente de la fecha ajustado */
+            color: #888; /* Color grisáceo para la fecha */
         }
     </style>
 </head>
 <body>
-    <div class="clock" id="clock"></div>
-    <div class="date" id="date"></div>
+    <div class="clock-container">
+        <div class="clock" id="clock"></div>
+        <div class="date" id="date"></div>
+    </div>
 
     <script>
         function updateClock() {
@@ -44,7 +55,7 @@
         }
 
         setInterval(updateClock, 1000);
-        updateClock(); // inicializa el reloj y la fecha inmediatamente
+        updateClock(); // Inicializa el reloj y la fecha inmediatamente
     </script>
 </body>
 </html>
